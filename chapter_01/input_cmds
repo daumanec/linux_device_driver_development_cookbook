@@ -1,0 +1,11 @@
+# For x86_64 binaries
+make CFLAGS="-Wall -O2" helloworld
+./helloworld
+
+# For ARM binaries
+export PATH=$PATH:/home/pzin/bin/toolchain/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf/bin
+make CC=arm-linux-gnueabihf-gcc CFLAGS="-Wall -O2" helloworld
+qemu-arm-static -L ~/bin/toolchain/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/ ./helloworld
+
+# To see binary info
+find helloworld
